@@ -1,35 +1,119 @@
+:root{
+    --color1: #eddfb3;
+    --color2: #3a3727;
+    --color3: #b09b71;
+    --color4: #d8cca3;
+    --darkgradient: linear-gradient(to top, var(--color2), var(--color3));
+    --lightgradient: linear-gradient(to bottom, var(--color1), var(--color3));
+}
+
 *{
     margin: 0;
-    margin-bottom: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 
 body{
+
     font-size: 18px;
-    font-family: sans-serif;
+    color: var(--color2);
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar{
-    border:2px solid blue;
-    padding: 1rem;
-
+    background: var(--darkgradient);
+    padding: 1.5rem 2rem;
+    position: relative;
 }
 
 .navbarList{
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-evenly;
-}
-
-.navbar .navbarList li{
+    justify-content: space-around;
     list-style: none;
 }
 
+
 li a{
     text-decoration: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2.5rem;
-    color: rgb(19, 19, 19);
+    color: var(--color1);
+    text-align: center;
+    margin: 0 1rem;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: var(--lightgradient);
+    height: 100vh;
+    width: 100vw;
+}
+
+.szöveg{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background: var(--darkgradient);
+    color: var(--color4);
+    padding: 1.5rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h3{
+    font-size: 2rem;
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+.photo{
+    display: flex;
+    position: relative;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    
+}
+
+.photo img{
+    max-width: 600px;
+    overflow: hidden;
+    border: 3px solid var(--color1);
+    border-radius: 10%;
+    box-shadow:0 0 10px 1px #3a3727;
+    margin: 1rem;
+}
+
+.photo img:hover{
+
+}
+
+footer{
+    background:var(--color2);
+    width: 100%;
+    height: 5rem;
+    position: relative;
+    top: 100%;
+    left: 0;
+}
+
+@media only screen and (max-width: 768px){
+    .mainContent{
+        flex-direction: column;
+    }
+    .szöveg, .photo {
+        width: 100%;
+    }
 }
