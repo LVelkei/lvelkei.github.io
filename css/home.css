@@ -12,7 +12,7 @@ body{
     font-size: 18px;
     color: black;
     font-family: 'Poppins', sans-serif;
-    background-color:rgb(241, 241, 241)
+    background-color:rgb(241, 241, 241);
 }
 
 .navbar{
@@ -27,14 +27,17 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem; 
+    gap: 1.8rem; 
     justify-content: space-around;
+    align-items: center;
     list-style: none;
     margin: 0 2rem;
 }
 
 
-li a{
+li a,
+li.stílusok,
+.dropdown-content a{
     position: relative;
     text-decoration: none;
     font-size: 1rem;
@@ -47,20 +50,46 @@ li a{
     padding: 0.5rem 1rem;
 }
 
-li a:hover{
-/*    background-color: rgb(80, 80, 80);
-    color: white;
-    padding: 0.5rem 1rem;*/
-    border: none;
+li a:hover,
+li.stílusok:hover,
+.dropdown-content a:hover,
+.szolgáltatásLista li:hover{
+    border-top: 1px solid rgb(184, 184, 184);
+    border-bottom: 1px solid rgb(184, 184, 184);
     box-shadow: 0 0 10px -5px black; 
 }
 
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    left: -47%;
+    background-color: rgb(241, 241, 241);
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgb(184, 184, 184);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
 .mainContent {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     height: fit-content;
 }
+
 
 .szöveg{
     display: flex;
@@ -85,15 +114,15 @@ h1, h3, p{
 }
 
 h1{
-    font-size: 3.5rem;
+    font-size: 3.2rem;
 }
 
 h3{
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 p{
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 
@@ -112,15 +141,17 @@ footer ul li p{
     padding: 1.5rem;
 }
 
+
 .photo img{
     max-width: 300px;
     border-radius: 10%;
-    box-shadow:0 0 10px 1px var(--color2);
     margin: 1rem;
+    transition: all 400ms ease;  
 }
 
-.szolgáltatásLista li img:hover{
-    box-shadow:0 0 15px 1px #636363;  
+.photo img:hover{
+    box-shadow:0 0 10px 1px #636363;  
+    transform: scale(1.05);
 }
 
 .szolgáltatások
@@ -151,18 +182,25 @@ footer ul li p{
     width: 60%;
 }
 
-.szolgáltatások h3{
+.szolgáltatások h3,
+.szolgáltatások p{
     justify-content: center;
 }
 
 .szolgáltatások h3,
-.szolgáltatásLista{
+.szolgáltatásLista,
+.szolgáltatások p{
     display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
     list-style: none;
     text-align: center;
+}
+
+.szolgáltatások p{
+    margin-top: 1rem;
 }
 
 .szolgáltatásLista{
@@ -175,15 +213,24 @@ footer ul li p{
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    border-radius: 10%;
+    padding-top: 1rem;
+    transition: all 400ms ease; 
 }
 
 .szolgáltatásLista li img{
     width: 250px;
     height: 300px;
     border-radius: 10%;
-    overflow: hidden;
     margin: 2rem;
-    box-shadow: 0 0 10px -5px black;  
+    box-shadow: 0 0 10px -5px black;
+    transition: all 400ms ease;  
+}
+
+.szolgáltatásLista li img:hover{
+    cursor: pointer;
+    box-shadow:0 0 10px 1px #636363;  
+    transform: scale(1.05);
 }
 
 footer{
@@ -207,9 +254,11 @@ footer ul{
 }
 
 footer ul li{
-    margin: 1rem 3rem;
+    margin: 1rem 1rem;
 }
 
+
+/*ikonok*/
 i[class^="fa-"]{
 margin: 0 1rem 0 0;
 }
@@ -219,6 +268,26 @@ margin: 0 1rem 0 0;
     .szolgáltatásLista{
         flex-direction: column;
     }
+
+    .navbar{
+        padding: 1.5rem 1rem;
+        width: 100%;
+        border-bottom: 3px solid black;
+        box-shadow: 0 1px 7px -1px rgb(184, 184, 184);
+    }
+    
+    .navbarList{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2rem; 
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        margin: 0 2rem;
+    }
+
     .szöveg, .photo {
         width: 100%;
     }
@@ -247,7 +316,7 @@ margin: 0 1rem 0 0;
     }
     
     p{
-        font-size: 1rem;
+        font-size: 0.8em;
     }
 
     .rólam p{
